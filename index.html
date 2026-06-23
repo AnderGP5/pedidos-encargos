@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos y Encargos</title>
+    <title>Acceso al Inventario</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <h1>¡Repositorio listo para uso!</h1>
+    <div class="login-container">
+        <h2>Control de Inventario</h2>
+        <p>Introduce la clave de acceso para continuar</p>
+        
+        <form id="loginForm" onsubmit="validarAcceso(event)">
+            <div class="input-group">
+                <input type="password" id="passwordField" placeholder="Contraseña" required>
+            </div>
+            <button type="submit">Ingresar</button>
+            <p id="errorMessage" class="error-msg"></p>
+        </form>
+    </div>
+
+    <script>
+        function validarAcceso(event) {
+            event.preventDefault();
+            
+            const password = document.getElementById('passwordField').value.trim();
+            
+            if (password === "") return;
+
+            window.location.href = password + ".html";
+        }
+    </script>
 </body>
 </html>
